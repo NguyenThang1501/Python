@@ -15,9 +15,9 @@ with open("C:\\Users\\Thang Laptop\\Desktop\\output.txt",mode = 'w') as output_f
             label = input("Enter a label: ")
             labels.append(label)
         for i in range(0,len(keywords)-1):
-            index = 0;
             index = sentence.find(keywords[i])
-            entities.append((index, index + len(keywords[i]), labels[i]))
+            if (index != -1):
+                entities.append((index, index + len(keywords[i]), labels[i]))
 
         output = {'entities' : entities}
         #print(sentence,output)
