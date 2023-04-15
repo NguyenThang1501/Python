@@ -1,1 +1,0 @@
-Graduate: Bachelor of Science in Mechanical Engineering (1991-1996) : {'entities': [(10, 18, 'Degree'), (33, 55, 'Major')]}Bachelor of Science in Geodetic Engineering : {'entities': [(0, 8, 'Degree'), (23, 43, 'Major')]}
