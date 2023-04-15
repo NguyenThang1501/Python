@@ -1,15 +1,24 @@
-import re
+with open("C:\\Users\\Thang Laptop\\Desktop\\output.txt",mode = 'w') as output_file:
+    while True:
+        sentence = input("Enter a sentence: ")
+        if sentence == 'N':
+            break;
+        entities = []
+        keywords = []
+        labels = []
 
-regex = re.compile(r'<[^>]+>')
-def remove_html(data):
-    return regex.sub('', data)
+        while True:
+            keyword = input("Enter a keyword: ")
+            keywords.append(keyword)
+            if keyword == '0':
+                break;
+            label = input("Enter a label: ")
+            labels.append(label)
+        for i in range(0,len(keywords)-1):
+            index = 0;
+            index = sentence.find(keywords[i])
+            entities.append((index, index + len(keywords[i]), labels[i]))
 
-def remove_numbers(data):
-    return re.sub(r'[~^0-9]', '', data)
-
-with open('C:\\Users\\Thang Laptop\\Desktop\\test.csv','r') as input_file:
-    data = input_file.read()
-    data = remove_html(remove_numbers(data))
-        
-with open('C:\\Users\\Thang Laptop\\Desktop\\output.csv', mode='w') as output_file:
-    output_file.write(data)
+        output = {'entities' : entities}
+        #print(sentence,output)
+        output_file.write(f"{sentence} : {output}")
